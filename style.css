@@ -69,9 +69,9 @@ font-family: 'Lato', sans-serif;
     color: #B8336A;
 }
 
-.pink-table {
+/* .pink-table {
     background: #C490D1;
-}
+} */
 
 label {
     position: relative;
@@ -81,6 +81,7 @@ label {
 
 span {
     padding: 2px;
+    border: 1px solid black;
 }
 
 .modal-header {

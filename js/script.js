@@ -1,4 +1,13 @@
 // console.log('its alive!');
+date_current = new Date().toLocaleDateString();
+console.log(date_current)
+// function for our edit buttons!
+function editMe() {
+    
+    
+    alert('Under construction!')
+
+}
 
 
 const date_new = document.querySelector('#dateInp');
@@ -9,36 +18,87 @@ const second_contact_new = document.querySelector('#secondContact');
 const thank_you = document.querySelector('#thankYou');
 const edit_btn = document.querySelector('#edit');
 const add_btn = document.querySelector('#add-btn')
+const table_body = document.querySelector('#myTbl tbody')
 
 
-// function for our edit buttons!
-function editMe() {
-    console.log('lets make an edit!')
 
+// adding a new row to the table: date, company name, location, first contact?, second contact?, thank you?
+function AddEntry(){
+
+    if(job_new.value === '' || location_new.value === ''){
+        alert('')
+        
 }
 
-add_btn.addEventListener('click', function () {
-    // Declare our variable values
-    const date_change = date_new.value
-    const job_change = job_new.value
-    const location_change = location_new.value
+    //create row element!
+    const new_row = document.createElement('tr')
+    new_row.className = 'myTbl'
+    // create table cells, aka DECKS
+    const location_cell = document.createElement('td')
+    location_cell.textContent = location_new.value;
+    new_row.appendChild(location_cell)
 
-    let row = document.getElementsByTagName('tr')[0];
-    let x = row.insertCell(1);
-    var elementid = document.getElementsByTagName("td").length
-    x.setAttribute('id', elementid);
-    x.innerHTML = date_change;
+    const job_applied_cell = document.createElement('td')
+    job_applied_cell.textContent = job_new.value;
+    new_row.appendChild(job_applied_cell)
 
+    const date_applied_cell = document.createElement('td')
+    date_applied_cell.textContent = date_new.value;
+    new_row.appendChild(date_applied_cell)
 
+    // FIRST CONTACT
+    const first_cell = document.createElement('td')
+    const first_status = document.createElement('img')
+    if(first_contact_new.checked === true){
+        first_status.src = '../Assets/green_checkmark.svg.png'
+    }else{
+        first_status.src = '../Assets/Red_X.svg.png'
+    }
+    first_cell.appendChild(first_status)
+    new_row.appendChild(first_cell)
 
-    // creating elements!
-    const tRow = document.createElement('tr')
-    const tDeck = document.createElement('td')
+    // SECOND CONTACT
+    const second_cell = document.createElement('td')
+    const second_status = document.createElement('img')
+    if(second_contact_new.checked === true){
+        second_status.src = '../Assets/green_checkmark.svg.png'
+    }else{
+        second_status.src = '../Assets/Red_X.svg.png'
+    }
+    second_cell.appendChild(second_status)
+    new_row.appendChild(second_cell)
 
+    const thanks_cell = document.createElement('td')
+    const thanks_status = document.createElement('img')
+    if(thank_you.checked === true){
+        thanks_status.src = '../Assets/green_checkmark.svg.png'
+    }else{
+        thanks_status.src = '../Assets/Red_X.svg.png'
+    }
+    thanks_cell.appendChild(thanks_status)
+    new_row.appendChild(thanks_cell)
 
+    const edit_cell = document.createElement('td')
+    const new_edit_btn = document.createElement('button')
+    new_edit_btn.textContent='Edit?'
+    new_edit_btn.className='edit-btn'
+    new_edit_btn.addEventListener('click', editMe)
+    edit_cell.appendChild(new_edit_btn)
+    new_row.appendChild(edit_cell)
 
+    // Append the new row!
+    table_body.appendChild(new_row)
 
-
-
-    console.log('success!')
-})
+    // Reset values!
+    date_new.value = '';
+    job_new.value = '';
+    location_new.value = '';
+    first_contact_new.checked = false;
+    second_contact_new.checked = false;
+    thank_you.checked = false;
+}
+    
+function handle_save() {
+    AddEntry();
+}
+add_btn.addEventListener('click', handle_save)
