@@ -5,10 +5,9 @@ font-family: 'JetBrains Mono', monospace;
 font-family: 'Lato', sans-serif;
 */
 
-/* html {
+html {
     background: #ACACDE;
-} */
-
+}
 .parent-bg {
     background: #ACACDE;
     font-family: 'JetBrains Mono', monospace;
@@ -16,10 +15,17 @@ font-family: 'Lato', sans-serif;
     min-height: 100vh;
 }
 
+.hero {
+    margin: 2% 0;
+    border-radius: 10px;
+    padding: 2%;
+    background: #8e8eba;
+
+}
 .hero>h2,
 .hero>p {
     font-family: 'JetBrains Mono', monospace;
-    margin-left: 100px;
+    margin-left: 15%;
 }
 
 .table-parent {
@@ -57,11 +63,13 @@ font-family: 'Lato', sans-serif;
 
 
     padding: 0 10%;
+    transition-duration: 100ms;
 }
 
 .my-btn:hover {
-    transition-duration: 1s;
+    transition-duration: 100ms;
     background-color: #460d8c;
+    scale: 1.1;
 }
 
 .part-time {
@@ -75,7 +83,6 @@ font-family: 'Lato', sans-serif;
 
 label {
     position: relative;
-    width: 100%;
     z-index: 1;
 }
 
@@ -99,15 +106,18 @@ span {
     border: 0 transparent;
     width: 90px;
     margin-top: -20px;
+    transition-duration: 100ms;
 }
 .modal-btn:hover {
-    transition-duration: 1s;
+    transition-duration: 100ms;
+    scale: 1.1;
     background-color: #460d8c;
 }
 
 .edit-btn  {
     border: transparent;
     background: transparent;
+    transition-duration: 150ms;
 /* display: table; */
 /* margin: 0 !important; */
 }
@@ -115,4 +125,30 @@ span {
     scale: 1.2;
 
     transition-duration: 150ms;
+}
+.form-control {
+background: transparent !important;
+border: none !important;
+border-bottom: 1px solid white !important;
+border-radius: 0px !important;
+color: #E5FCFF !important;
+}
+::placeholder {
+    color: #E5FCFF !important;
+}
+
+.footer {
+
+        --s: 140px; /* control the size */
+        --c: #170409; /* first color */
+        
+        --_g: #0000 52%,var(--c) 54% 57%,#0000 59%;
+        background: 
+         radial-gradient(farthest-side at -33.33% 50%,var(--_g)) 0 calc(var(--s)/2),
+         radial-gradient(farthest-side at 50% 133.33%,var(--_g)) calc(var(--s)/2) 0,
+         radial-gradient(farthest-side at 133.33% 50%,var(--_g)),
+         radial-gradient(farthest-side at 50% -33.33%,var(--_g)),
+         #67917A; /* second color */
+        background-size: calc(var(--s)/4.667) var(--s),var(--s) calc(var(--s)/4.667);
+      
 }

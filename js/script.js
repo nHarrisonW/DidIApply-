@@ -17,8 +17,9 @@ const first_contact_new = document.querySelector('#firstContact');
 const second_contact_new = document.querySelector('#secondContact');
 const thank_you = document.querySelector('#thankYou');
 const edit_btn = document.querySelector('#edit');
-const add_btn = document.querySelector('#add-btn')
-const table_body = document.querySelector('#myTbl tbody')
+const add_btn = document.querySelector('#add-btn');
+const table_body = document.querySelector('#myTbl tbody');
+const part_time = document.querySelector('#partTime');
 
 // Load entries from local storage
 function loadEntries() {
@@ -101,6 +102,13 @@ function AddEntry() {
     edit_cell.appendChild(new_edit_btn);
     new_row.appendChild(edit_cell);
 
+    if(part_time.checked === true){
+        new_row.classList.add('part-time')
+        // new_row.className ='part-time, myTbl'
+
+        console.log('checked part time!')
+    }
+
     // Append the new row
     table_body.appendChild(new_row);
 
@@ -114,11 +122,23 @@ function AddEntry() {
     first_contact_new.checked = false;
     second_contact_new.checked = false;
     thank_you.checked = false;
+    part_time.checked = false;
 }
 
 function handle_save() {
     AddEntry();
 }
+function clear_fields() {
+    date_new.value = '';
+    job_new.value = '';
+    location_new.value = '';
+    first_contact_new.checked = false;
+    second_contact_new.checked = false;
+    thank_you.checked = false;
+    part_time.checked = false;
+}
+
+
 
 add_btn.addEventListener('click', handle_save);
 
